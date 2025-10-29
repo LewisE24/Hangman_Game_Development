@@ -1,5 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        // Initial Code
+        System.out.println("Hello World!");
     }
 }
