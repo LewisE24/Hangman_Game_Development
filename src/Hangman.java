@@ -5,35 +5,39 @@ public class Hangman {
         boolean running = true;
         Scanner scanner = new Scanner(System.in);
 
-        while(running){
-            System.out.println(ConsoleHome.bannerPrint());
-            System.out.println();
+        System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
+        System.out.println(ConsoleStyling.RESET);
 
-            System.out.print("Would you like to (p)lay or (e)xit? (p/e)");
+
+        while(running){
+            System.out.print("\nWould you like to (p)lay or (e)xit?: ");
             String continueOrExit = scanner.nextLine();
 
-
-            switch(continueOrExit){
+            switch(continueOrExit.toLowerCase()){
                 case "e":
+                case "exit":
                     running = false;
                     break;
                 case "p":
-                    System.out.println(ConsoleHome.bannerPrint());
-                    Execution();
+                case "play":
+                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
+                    System.out.println(ConsoleStyling.RESET);
+                    Game_Start();
                     break;
                 default:
-                    System.out.println("Please enter a valid option.");
+                    System.out.println(ConsoleStyling.RED + continueOrExit + ConsoleStyling.RESET + " is not a valid option. Please enter a valid option. " + ConsoleStyling.GREEN + "\n- p\n- e" + ConsoleStyling.RESET);
             }
         }
     }
 
-    public static void Execution(){
+    public static void Game_Start(){
         Scanner scanner = new Scanner(System.in);
             System.out.print("Enter your name: ");
             String name = scanner.nextLine();
             System.out.printf("%nWelcome to Hangman, %s!%n", name);
-            System.out.println("Still WIP! Press return to return to Main Menu...");
-
+            System.out.println("Still " + ConsoleStyling.YELLOW + "WIP" + ConsoleStyling.RESET + "! Press return to return to Main Menu...");
             scanner.nextLine();
+            System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
+            System.out.println(ConsoleStyling.RESET);
     }
 }
