@@ -1,12 +1,10 @@
-import java.io.IOException;
-
 public class ConsoleHome {
     public static String bannerPrint(){
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
-        String banner = """
+        return """
              
              ░██     ░██       ░███       ░███    ░██      ░██████     ░███     ░███       ░███       ░███    ░██\s
              ░██     ░██      ░██░██      ░████   ░██     ░██   ░██    ░████   ░████      ░██░██      ░████   ░██\s
@@ -17,8 +15,6 @@ public class ConsoleHome {
              ░██     ░██    ░██    ░██    ░██    ░███      ░█████░█    ░██       ░██    ░██    ░██    ░██    ░███\s
                 
             """;
-
-        return banner;
     }
 
 }
