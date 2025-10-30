@@ -31,16 +31,9 @@ public class Hangman {
         Scanner scanner = new Scanner(System.in);
             System.out.print("Enter your name: ");
             String name = scanner.nextLine();
+            System.out.printf("%nWelcome to Hangman, %s!%n", name);
+            System.out.println("Still WIP! Press return to return to Main Menu...");
 
-            switch(name){
-                case "Flamur":
-                case "flamur":
-                    System.out.println("dob");
-                    break;
-                default:
-                    System.out.printf("%nWelcome to Hangman, %s!%n", name);
-                    System.out.println("Still WIP! Press return to return to Main Menu...");
-            }
             scanner.nextLine();
     }
 }
