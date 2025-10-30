@@ -32,8 +32,7 @@ public class Hangman {
             System.out.print("Enter your name: ");
             String name = scanner.nextLine();
 
-            switch(name){
-                case "Flamur":
+            switch(name.toLowerCase()){
                 case "flamur":
                     System.out.println("dob");
                     break;
