@@ -6,6 +6,7 @@ import java.net.URL;
 
 public class GetWord {
     public static String word() {
+        UnsafeSSL.disableCertificateValidation();
         try {
             URL url = new URL("https://random-word-api.vercel.app/api?words=1");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
