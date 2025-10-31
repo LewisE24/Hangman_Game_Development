@@ -2,32 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        boolean running = true;
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-        System.out.println(ConsoleStyling.RESET);
-
-
-        while(running){
-            System.out.print("\nWould you like to (p)lay or (e)xit?: ");
-            String continueOrExit = scanner.nextLine();
-
-            switch(continueOrExit.toLowerCase()){
-                case "e":
-                case "exit":
-                    running = false;
-                    break;
-                case "p":
-                case "play":
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
-                    Game_Start();
-                    break;
-                default:
-                    System.out.println(ConsoleStyling.RED + continueOrExit + ConsoleStyling.RESET + " is not a valid option. Please enter a valid option. " + ConsoleStyling.GREEN + "\n- p\n- e" + ConsoleStyling.RESET);
-            }
-        }
+        // Set up scanner
+        Player_Choice();
     }
 
     public static void Game_Start(){
@@ -36,8 +12,37 @@ public class Main {
         String name = scanner.nextLine();
         System.out.printf("%nWelcome to Hangman, %s!%n", name);
         System.out.println("Still " + ConsoleStyling.YELLOW + "WIP" + ConsoleStyling.RESET + "! Press return to return to Main Menu...");
-        scanner.nextLine();
+        Player_Choice();
+    }
+
+    public static void Player_Choice(){
+        Scanner scanner = new Scanner(System.in);
+        String[] options = {"Play" , "Exit"};
+
+        // Print out banner
         System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
         System.out.println(ConsoleStyling.RESET);
+
+        System.out.println("Choose an option: ");
+        for (int i = 0; i < options.length; i++) {
+            System.out.println("\u001B[32m" + (i + 1) + ". " + options[i] + "\u001B[0m");
+        }
+
+
+        System.out.print("Enter your choice: ");
+        int choice = scanner.nextInt();
+
+        switch(choice){
+            case 1:
+                System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
+                System.out.println(ConsoleStyling.RESET);
+                Game_Start();
+                break;
+            case 2:
+                System.out.println("Goodbye ;)");
+                break;
+            default:
+                System.out.println(ConsoleStyling.RED + choice + ConsoleStyling.RESET + " is not a valid option. Please enter a valid option. " + ConsoleStyling.GREEN + "\n- p\n- e" + ConsoleStyling.RESET);
+        }
     }
 }
