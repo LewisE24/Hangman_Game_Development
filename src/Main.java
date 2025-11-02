@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -15,9 +16,9 @@ public class Main {
         Player_Choice();
     }
 
-    public static void Player_Choice(){
+    public static void Player_Choice() {
         Scanner scanner = new Scanner(System.in);
-        String[] options = {"Play" , "Exit"};
+        String[] options = {"Play", "Hangman", "Exit"};
 
         // Print out banner
         System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
@@ -30,19 +31,30 @@ public class Main {
 
 
         System.out.print("Enter your choice: ");
-        int choice = scanner.nextInt();
 
-        switch(choice){
+        int choice = 0;
+        try {
+            choice = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println(ConsoleStyling.RED + "Invalid choice. Exiting game");
+            System.exit(1);
+        }
+
+        switch (choice) {
             case 1:
                 System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
                 System.out.println(ConsoleStyling.RESET);
                 Game_Start();
                 break;
             case 2:
+                Hangman game = new Hangman();
+                game.hangman();
+                Game_Start();
+            case 3:
                 System.out.println("Goodbye ;)");
                 break;
             default:
-                System.out.println(ConsoleStyling.RED + choice + ConsoleStyling.RESET + " is not a valid option. Please enter a valid option. " + ConsoleStyling.GREEN + "\n- p\n- e" + ConsoleStyling.RESET);
+                System.out.println(ConsoleStyling.RED + choice + " is not a valid option.");
         }
     }
 }
