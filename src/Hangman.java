@@ -10,7 +10,6 @@ public class Hangman {
     int lives = 10;
     String word = GetWord.word();
     String hiddenWord = "_".repeat(word.length());
-    int wordLength = word.length();
     char guessedChar;
 
     public void hangman() {
@@ -43,7 +42,7 @@ public class Hangman {
     public void checkChar() {
         boolean exists = false;
 
-        for (int i = 0; i < wordLength; i++) {
+        for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i)==guessedChar){
                 exists=true;
                 hiddenWord = hiddenWord.substring(0, i) + guessedChar + hiddenWord.substring(i + 1);
