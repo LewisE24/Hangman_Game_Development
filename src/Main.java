@@ -1,4 +1,3 @@
-import java.io.Console;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -30,11 +29,7 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println(ConsoleStyling.RED + "Invalid choice. Make sure to enter a number.");
                 scanner.nextLine();
-                try {
-                    Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                } catch (InterruptedException r) {
-                    r.printStackTrace();
-                }
+                Utils.sleep(2000);
                 continue;
             }
 
@@ -50,11 +45,7 @@ public class Main {
                     break;
                 default:
                     System.out.println(ConsoleStyling.RED + choice + " is not a valid option." + ConsoleStyling.RESET);
-                    try {
-                        Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                    } catch (InterruptedException r) {
-                        r.printStackTrace();
-                    }
+                    Utils.sleep(2000);
                     System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
                     System.out.println(ConsoleStyling.RESET);
                     break;
@@ -81,11 +72,9 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println(ConsoleStyling.RED + "Invalid choice. Make sure to enter a number.");
                 scanner.nextLine();
-                try {
-                    Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                } catch (InterruptedException r) {
-                    e.printStackTrace();
-                }
+                Utils.sleep(2000);
+                System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
+                System.out.println(ConsoleStyling.RESET);
                 continue;
             }
 
@@ -102,11 +91,7 @@ public class Main {
                     break;
                 default:
                     System.out.println(ConsoleStyling.RED + choice + " is not a valid option." + ConsoleStyling.RESET);
-                    try {
-                        Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                    } catch (InterruptedException r) {
-                        r.printStackTrace();
-                    }
+                    Utils.sleep(2000);
                     System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
                     System.out.println(ConsoleStyling.RESET);
                     break;
