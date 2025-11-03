@@ -8,24 +8,23 @@ public class Hangman {
     ArrayList<Character> correctGuessedChars = new ArrayList<>();
     ArrayList<Character> wrongGuessedChars = new ArrayList<>();
     int lives = 10;
-    String word = GetWord.word();
+    String word = GetWord.word().toUpperCase();
     String hiddenWord = "_".repeat(word.length());
     char guessedChar;
 
     public void hangman() {
 
-//        System.out.println(word);
         do {
-            System.out.println("Lives: "+lives+"/10");
-            System.out.println("Correct Guesses: "+correctGuessedChars);
-            System.out.println("Wrong Guesses: "+wrongGuessedChars);
+            System.out.println(lives+ConsoleStyling.RED+" ♥"+ ConsoleStyling.RESET);
+            System.out.println(ConsoleStyling.GREEN+"Correct Guesses: "+correctGuessedChars+ConsoleStyling.RESET);
+            System.out.println(ConsoleStyling.RED+"Wrong Guesses: "+wrongGuessedChars+ConsoleStyling.RESET);
             System.out.println(hiddenWord);
             System.out.print("Guess a letter: ");
 
-            guessedChar = scanner.next().charAt(0);
+            guessedChar = scanner.next().toUpperCase().charAt(0);
 
             if (correctGuessedChars.contains(guessedChar) || wrongGuessedChars.contains(guessedChar)) {
-                System.out.println("this character has already been guessed");
+                System.out.println(ConsoleStyling.YELLOW+"This character has already been guessed"+ConsoleStyling.RESET);
             } else {
                 checkChar();
             }
@@ -35,12 +34,17 @@ public class Hangman {
             System.out.println("Better luck next time. The hidden word was: "+word);
         }
         else {
-            System.out.println("Smashed it!");
+            System.out.println("Smashed it! The hidden word was: "+word);
         }
     }
 
     public void checkChar() {
         boolean exists = false;
+
+        if(!Character.isAlphabetic(guessedChar)){
+            System.out.println(ConsoleStyling.RED+"Only alphabetic characters allowed!"+ConsoleStyling.RESET);
+            return;
+        }
 
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i)==guessedChar){
@@ -62,4 +66,5 @@ public class Hangman {
         Hangman game = new Hangman();
         game.hangman();
     }
+
 }
