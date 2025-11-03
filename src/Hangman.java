@@ -11,6 +11,7 @@ public class Hangman {
     String word = GetWord.word().toUpperCase();
     String hiddenWord = "_".repeat(word.length());
     char guessedChar;
+    String input;
 
     public void hangman() {
 
@@ -19,9 +20,16 @@ public class Hangman {
             System.out.println(ConsoleStyling.GREEN+"Correct Guesses: "+correctGuessedChars+ConsoleStyling.RESET);
             System.out.println(ConsoleStyling.RED+"Wrong Guesses: "+wrongGuessedChars+ConsoleStyling.RESET);
             System.out.println(hiddenWord);
-            System.out.print("Guess a letter: ");
 
-            guessedChar = scanner.next().toUpperCase().charAt(0);
+            do {
+                System.out.print("Guess a letter: ");
+                input = scanner.next();
+                if (input.length()!=1){
+                    System.out.println(ConsoleStyling.RED+"Only 1 character at a time is allowed!"+wrongGuessedChars+ConsoleStyling.RESET);
+                }
+            } while (input.length()!=1);
+
+            guessedChar = input.toUpperCase().charAt(0);
 
             if (correctGuessedChars.contains(guessedChar) || wrongGuessedChars.contains(guessedChar)) {
                 System.out.println(ConsoleStyling.YELLOW+"This character has already been guessed"+ConsoleStyling.RESET);
