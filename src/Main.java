@@ -1,4 +1,3 @@
-import java.io.Console;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,8 +14,7 @@ public class Main {
 
         while(running) {
             // Print out banner
-            System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-            System.out.println(ConsoleStyling.RESET);
+            ConsoleStyling.bannerPrint();
 
             System.out.println("--Main Menu--");
             for (int i = 0; i < options.length; i++) {
@@ -30,18 +28,13 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println(ConsoleStyling.RED + "Invalid choice. Make sure to enter a number.");
                 scanner.nextLine();
-                try {
-                    Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                } catch (InterruptedException r) {
-                    r.printStackTrace();
-                }
+                Utils.sleep(2000);
                 continue;
             }
 
             switch (choice) {
                 case 1:
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    ConsoleStyling.bannerPrint();
                     mini_game_menu();
                     break;
                 case 2:
@@ -50,13 +43,8 @@ public class Main {
                     break;
                 default:
                     System.out.println(ConsoleStyling.RED + choice + " is not a valid option." + ConsoleStyling.RESET);
-                    try {
-                        Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                    } catch (InterruptedException r) {
-                        r.printStackTrace();
-                    }
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    Utils.sleep(2000);
+                    ConsoleStyling.bannerPrint();
                     break;
             }
         }
@@ -81,18 +69,14 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println(ConsoleStyling.RED + "Invalid choice. Make sure to enter a number.");
                 scanner.nextLine();
-                try {
-                    Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                } catch (InterruptedException r) {
-                    e.printStackTrace();
-                }
+                Utils.sleep(2000);
+                ConsoleStyling.bannerPrint();
                 continue;
             }
 
             switch (choice) {
                 case 1:
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    ConsoleStyling.bannerPrint();
                     Hangman game = new Hangman();
                     game.hangman();
                     break;
@@ -102,13 +86,8 @@ public class Main {
                     break;
                 default:
                     System.out.println(ConsoleStyling.RED + choice + " is not a valid option." + ConsoleStyling.RESET);
-                    try {
-                        Thread.sleep(2000); // 2000 milliseconds = 2 seconds
-                    } catch (InterruptedException r) {
-                        r.printStackTrace();
-                    }
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    Utils.sleep(2000);
+                    ConsoleStyling.bannerPrint();
                     break;
             }
         }
