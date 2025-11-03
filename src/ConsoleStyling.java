@@ -9,19 +9,18 @@ public class ConsoleStyling {
     public static final String CYAN = "\033[36m";
     public static final String WHITE = "\033[37m";
 
-    public static String bannerPrint(){
+    public static void bannerPrint(){
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
-
-        return """ 
-                  _____ _____ _           ____                          \s
-                 |_   _|_   _| |         / ___| __ _ _ __ ___   ___  ___\s
-                   | |   | | | |   _____| |  _ / _` | '_ ` _ \\ / _ \\/ __|
-                   | |   | | | |__|_____| |_| | (_| | | | | | |  __/\\__ \\
-                   |_|   |_| |_____|     \\____|\\__,_|_| |_| |_|\\___||___/
-            """;
+        System.out.println(RED);
+        System.out.println("  _____      ____                           ");
+        System.out.println(" |_   _|    / ___| __ _ _ __ ___   ___  ___ ");
+        System.out.println("   | |_____| |  _ / _` | '_ ` _ \\ / _ \\/ __|");
+        System.out.println("   | |_____| |_| | (_| | | | | | |  __/\\__ \\");
+        System.out.println("   |_|      \\____|\\__,_|_| |_| |_|\\___||___/");
+        System.out.println(RESET);
     }
 
 }

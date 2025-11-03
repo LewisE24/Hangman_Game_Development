@@ -14,8 +14,7 @@ public class Main {
 
         while(running) {
             // Print out banner
-            System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-            System.out.println(ConsoleStyling.RESET);
+            ConsoleStyling.bannerPrint();
 
             System.out.println("--Main Menu--");
             for (int i = 0; i < options.length; i++) {
@@ -35,8 +34,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    ConsoleStyling.bannerPrint();
                     mini_game_menu();
                     break;
                 case 2:
@@ -46,8 +44,7 @@ public class Main {
                 default:
                     System.out.println(ConsoleStyling.RED + choice + " is not a valid option." + ConsoleStyling.RESET);
                     Utils.sleep(2000);
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    ConsoleStyling.bannerPrint();
                     break;
             }
         }
@@ -73,15 +70,13 @@ public class Main {
                 System.out.println(ConsoleStyling.RED + "Invalid choice. Make sure to enter a number.");
                 scanner.nextLine();
                 Utils.sleep(2000);
-                System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                System.out.println(ConsoleStyling.RESET);
+                ConsoleStyling.bannerPrint();
                 continue;
             }
 
             switch (choice) {
                 case 1:
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    ConsoleStyling.bannerPrint();
                     Hangman game = new Hangman();
                     game.hangman();
                     break;
@@ -92,8 +87,7 @@ public class Main {
                 default:
                     System.out.println(ConsoleStyling.RED + choice + " is not a valid option." + ConsoleStyling.RESET);
                     Utils.sleep(2000);
-                    System.out.println(ConsoleStyling.RED + ConsoleStyling.bannerPrint());
-                    System.out.println(ConsoleStyling.RESET);
+                    ConsoleStyling.bannerPrint();
                     break;
             }
         }
