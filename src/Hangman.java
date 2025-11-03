@@ -31,6 +31,13 @@ public class Hangman {
                 checkChar();
             }
         } while (lives != 0 && hiddenWord.contains("_"));
+
+        if(hiddenWord.contains("_")){
+            System.out.println("Better luck next time. The hidden word was: "+word);
+        }
+        else {
+            System.out.println("Smashed it!");
+        }
     }
 
     public void checkChar() {
