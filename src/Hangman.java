@@ -4,6 +4,113 @@ import java.util.ArrayList;
 
 public class Hangman {
 
+    String[] hangman = new String[] {
+            """
+             
+             
+             
+             
+             
+             
+    ═════════════""",
+            """
+             ╗
+             ║
+             ║
+             ║
+             ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+             ║
+             ║
+             ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😐      ║
+             ║
+             ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😐      ║
+     │       ║
+             ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😐      ║
+    /│       ║
+             ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😐      ║
+    /│\\      ║
+             ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😟      ║
+    /│\\      ║
+    /        ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😧      ║
+    /│\\      ║
+    / \\      ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😫      ║
+    /|\\      ║
+    / \\      ║
+             ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     😵      ║
+    /|\\      ║
+    / \\      ║
+    GAME OVER║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+     💀      ║
+    /|\\      ║
+    / \\      ║
+    YOU DIED ║
+    ═════════╩═══""",
+            """
+     ╔═══════╗
+     ║       ║
+             ║
+      \\😄/   ║
+        O    ║
+       /\\    ║
+    ═════════╩═══"""
+    };
+
     Scanner scanner = new Scanner(System.in);
     ArrayList<Character> correctGuessedChars = new ArrayList<>();
     ArrayList<Character> wrongGuessedChars = new ArrayList<>();
@@ -20,12 +127,12 @@ public class Hangman {
             System.out.println(ConsoleStyling.GREEN+"Correct Guesses: "+correctGuessedChars+ConsoleStyling.RESET);
             System.out.println(ConsoleStyling.RED+"Wrong Guesses: "+wrongGuessedChars+ConsoleStyling.RESET);
             System.out.println(hiddenWord);
-
+            System.out.println(hangman[wrongGuessedChars.size()]);
             do {
                 System.out.print("Guess a letter: ");
                 input = scanner.next();
                 if (input.length()!=1){
-                    System.out.println(ConsoleStyling.RED+"Only 1 character at a time is allowed!"+wrongGuessedChars+ConsoleStyling.RESET);
+                    System.out.println(ConsoleStyling.RED+"Only 1 character at a time is allowed!"+ConsoleStyling.RESET);
                 }
             } while (input.length()!=1);
 
@@ -39,10 +146,12 @@ public class Hangman {
         } while (lives != 0 && hiddenWord.contains("_"));
 
         if(hiddenWord.contains("_")){
+            System.out.println(hangman[11]);
             System.out.println("Better luck next time. The hidden word was: "+word);
         }
         else {
             System.out.println("Smashed it! The hidden word was: "+word);
+            System.out.println(hangman[12]);
         }
     }
 
