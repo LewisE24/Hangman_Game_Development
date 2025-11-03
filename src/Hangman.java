@@ -25,7 +25,7 @@ public class Hangman {
                 System.out.print("Guess a letter: ");
                 input = scanner.next();
                 if (input.length()!=1){
-                    System.out.println(ConsoleStyling.RED+"Only 1 character at a time is allowed!"+wrongGuessedChars+ConsoleStyling.RESET);
+                    System.out.println(ConsoleStyling.RED+"Only 1 character at a time is allowed!"+ConsoleStyling.RESET);
                 }
             } while (input.length()!=1);
 
